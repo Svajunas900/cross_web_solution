@@ -14,6 +14,6 @@ class SqliteConnection:
     self.cursor.execute(query)
     return self.cursor.fetchall()
   
-  def save_data(self, query):
-    self.cursor.executemany(query)
+  def save_data(self, query, values):
+    self.cursor.executemany(query, values)
     self.connection.commit()

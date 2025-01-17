@@ -26,11 +26,11 @@ class PostgresConnection:
     self.cursor.execute(query)
     return self.cursor.fetchall()
 
-  def save_data(self, query):
-    self.cursor.executemany(query)
+  def save_data(self, query, values):
+    self.cursor.executemany(query, values)
     self.connection.commit()
 
 
-conn = PostgresConnection()
+# conn = PostgresConnection()
 
-print(conn.fetch_data("SELECT * FROM app1_userprofile"))
+# print(conn.fetch_data("SELECT * FROM app1_userprofile"))
