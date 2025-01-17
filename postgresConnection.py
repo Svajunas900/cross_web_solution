@@ -19,7 +19,7 @@ class PostgresConnection:
     if cls._instance is None:
       cls._instance = super().__new__(cls, *args, **kwargs)
       cls._instance.connection = psycopg2.connect(database=POSTGRES_DB, user=POSTGRES_USER, password=POSTGRES_PASSWORD, host=POSTGRES_HOST, port=POSTGRES_PORT)
-      cls._instance._instance.cursor = cls._instance.connection.cursor()
+      cls._instance.cursor = cls._instance.connection.cursor()
       return cls._instance
   
   def fetch_data(self, query):
@@ -27,7 +27,7 @@ class PostgresConnection:
     return self.cursor.fetchall()
 
   def save_data(self, query):
-    self.cursor.execute(query)
+    self.cursor.executemany(query)
     self.connection.commit()
 
 
