@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authorize</title>
+</head>
+<body>
+  <form method="POST">
+    <div>
+      <label>redirect_uri</label>
+      <input type="text" name="redirect_uri" value="/"></input>
+    </div>
+    <div>
+      <label>code</label>
+      <input type="text" name="code" value="random"></input>
+    </div>
+    <div>
+      <label>Client_id</label>
+      <input type="text" name="client_id"></input>
+    </div>
+    <button type="submit">Authorize</button>
+</form>
+</body>
+</html>

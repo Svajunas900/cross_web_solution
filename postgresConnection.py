@@ -22,11 +22,11 @@ class PostgresConnection:
       cls._instance.cursor = cls._instance.connection.cursor()
       return cls._instance
   
-  def fetch_data(self, query):
+  def fetch_data(self, query: str) -> list:
     self.cursor.execute(query)
     return self.cursor.fetchall()
 
-  def save_data(self, query, values):
+  def save_data(self, query: str, values: str) -> None:
     self.cursor.executemany(query, values)
     self.connection.commit()
 
